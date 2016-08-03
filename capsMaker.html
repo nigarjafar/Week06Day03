@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+		.main{
+			width:900px;
+			margin:0 auto;
+		}
+		.capsFrame{
+			width:100%;
+			height:550px;
+			overflow:hidden;
+			position:relative;
+		}
+		img{
+			width:100%;
+		}
+
+		.textFrame{
+			width:100%;
+			background-color:red;
+			color:white;
+			position:absolute;
+			bottom:0;
+			text-align:center;
+		}
+
+		p{
+			font-size:25px;
+			font-weight:bold;
+		}
+		
+
+		.inputDiv input{
+		display:inline-block;
+		width:800px;
+		padding:5px;
+		margin:5px 0;
+	
+		}
+
+		.inputDiv button{
+			float:right;
+			border:none;
+			background:#e4e4e4;
+			padding:7px 0;
+			text-align:center;
+			width:80px;
+			margin:5px 0px;
+		}
+	</style>
+</head>
+<body>
+
+<!-- <div class="main">
+	<div class="capsFrame">
+		
+		<img src="images/01.jpg">
+		<div class="textFrame">
+			<p>Lorem ipsum doler sit amet</p>
+		</div>
+	</div>
+	<div class="inputDiv">
+		<input type="text" placeholder="Add Image URL">
+		<button onclick="addImage()">Add Image</button>
+	
+		<input type="text" placeholder="Add Text">
+		<button onclick="addText()">Add Text</button>
+	</div>
+</div> -->
+
+<script>
+	//Main Div
+	var mainDiv=document.createElement("div")
+	mainDiv.setAttribute("class", "main")
+	document.getElementsByTagName("body")[0].appendChild(mainDiv)
+		//Caps Frame
+		var capsFrame=document.createElement("div")
+		capsFrame.setAttribute("class","capsFrame")
+		document.getElementsByClassName("main")[0].appendChild(capsFrame)
+			//Image
+			var image=document.createElement("img")
+			image.src="images/06.jpg"
+			document.getElementsByClassName("capsFrame")[0].appendChild(image)
+			//Text Frame
+			var textFrame=document.createElement("div")
+			textFrame.setAttribute("class","textFrame")
+			document.getElementsByClassName("capsFrame")[0].appendChild(textFrame)
+				//Text
+				var capsText=document.createElement("p")
+				capsText.innerHTML="Me when my code works"
+				document.getElementsByClassName("textFrame")[0].appendChild(capsText)
+			//inputDiv
+			var inputDiv=document.createElement("div")
+			inputDiv.setAttribute("class","inputDiv")
+			document.getElementsByClassName("main")[0].appendChild(inputDiv)
+				//input for image
+				var inputImg=document.createElement("input")
+				inputImg.placeholder="Add Image URL"
+				inputImg.type="text"
+				document.getElementsByClassName("inputDiv")[0].appendChild(inputImg)
+
+				//button for image
+				var buttonImg=document.createElement("button")
+				buttonImg.innerHTML="Add Image"
+				document.getElementsByClassName("inputDiv")[0].appendChild(buttonImg)
+				buttonImg.setAttribute("onclick", "addImage()")
+
+				//input for text
+				var inputText=document.createElement("input")
+				inputText.placeholder="Add Text"
+				inputText.type="text"
+				document.getElementsByClassName("inputDiv")[0].appendChild(inputText)
+
+				//button for text
+				var buttonText=document.createElement("button")
+				buttonText.innerHTML="Add Text"
+				document.getElementsByClassName("inputDiv")[0].appendChild(buttonText)
+				buttonText.setAttribute("onclick", "addText()")
+
+
+
+	function addImage(){
+		var imgUrl=document.getElementsByTagName("input")[0].value;
+		document.getElementsByTagName('img')[0].src="images/"+imgUrl;
+	}
+
+	function addText(){
+		var text=document.getElementsByTagName("input")[1].value;
+		document.getElementsByTagName('p')[0].innerHTML=text;
+	}
+</script>
+</body>
+</html>

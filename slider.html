@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+		.main{
+			width:900px;
+			margin:0 auto;
+
+		}
+		#imgFrame{
+			width:100%;
+			height:500px;
+			overflow:hidden;
+		}
+		#imgFrame img{
+			width:100%;
+		}
+
+		#textFrame{
+			background-color:#cee2e5;
+			padding:10px;
+			width: calc(100% - 20px);
+			text-align:center;
+		}
+
+		.p{
+			font-size:20px;
+		}
+
+		#buttonDiv button:first-child{
+			float:left;
+
+		}
+		#buttonDiv button:last-child{
+			float:right;
+
+		}
+		button{
+			background-color:#5CA1AA;
+			color:white;
+			padding:10px 20px;
+			border:none;
+		}
+
+
+	</style>
+</head>
+<body>
+<!-- <div class="main">
+	<div id="imgFrame">
+		<img src="images/01.jpg">
+	</div>
+	<div id="textFrame">
+		<p></p>
+	</div>
+	<div id="buttonDiv">
+		<button onclick="prev()">Prev</button>
+		<button onclick="next()">Next</button>
+	</div>
+</div> -->
+
+<script>
+var	imgArr=["images/01.jpg","images/02.jpg","images/03.jpg","images/04.jpg","images/05.jpg"]
+var textArr=["Image 01","Image 02","Image 03","Image 04","Image 05"]
+
+//Creating Structure
+
+var mainDiv=document.createElement("div")
+mainDiv.setAttribute("class", "main")
+document.getElementsByTagName("body")[0].appendChild(mainDiv)
+	//imgFrame
+	var imgFrame=document.createElement("div")
+	imgFrame.setAttribute("id", "imgFrame")
+	document.getElementsByClassName("main")[0].appendChild(imgFrame)
+		//img
+		var image=document.createElement("img")
+		document.getElementById("imgFrame").appendChild(image)
+
+	//textFrame
+	var textFrame=document.createElement("div")
+	textFrame.setAttribute("id", "textFrame")
+	document.getElementsByClassName("main")[0].appendChild(textFrame)
+		//text
+		var text=document.createElement("p")
+		document.getElementById("textFrame").appendChild(text)
+
+	//buttonDiv
+	var buttonDiv=document.createElement("div")
+	buttonDiv.setAttribute("id", "buttonDiv")
+	document.getElementsByClassName("main")[0].appendChild(buttonDiv)
+		//buttons
+		var buttonPrev=document.createElement("button")
+		buttonPrev.innerHTML="Prev"
+		document.getElementById("buttonDiv").appendChild(buttonPrev)
+		buttonPrev.setAttribute("onclick", "prev()")
+
+		var buttonNext=document.createElement("button")
+		buttonNext.innerHTML="Next"
+		document.getElementById("buttonDiv").appendChild(buttonNext)
+		buttonNext.setAttribute("onclick", "next()")
+
+
+//First Values of img and text
+document.getElementsByTagName("img")[0].src=imgArr[0];
+document.getElementsByTagName("p")[0].innerHTML=textArr[0];
+
+var k=0;
+
+function next(){
+	k++;
+	if(k==imgArr.length){
+		k=0;
+	}
+	document.getElementsByTagName("img")[0].src=imgArr[k];
+	document.getElementsByTagName("p")[0].innerHTML=textArr[k];
+}
+
+function prev(){
+	k--;
+	if(k==-1){
+		k=imgArr.length-1;
+	}
+	document.getElementsByTagName("img")[0].src=imgArr[k];
+	document.getElementsByTagName("p")[0].innerHTML=textArr[k];
+}
+
+
+</script>
+</body>
+</html>
