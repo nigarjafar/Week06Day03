@@ -47,7 +47,7 @@
 	</style>
 </head>
 <body>
-<!-- <div class="main">
+<div class="main">
 	<div id="imgFrame">
 		<img src="images/01.jpg">
 	</div>
@@ -58,7 +58,7 @@
 		<button onclick="prev()">Prev</button>
 		<button onclick="next()">Next</button>
 	</div>
-</div> -->
+</div> 
 
 <script>
 var	imgArr=["images/01.jpg","images/02.jpg","images/03.jpg","images/04.jpg","images/05.jpg"]
@@ -66,7 +66,7 @@ var textArr=["Image 01","Image 02","Image 03","Image 04","Image 05"]
 
 //Creating Structure
 
-var mainDiv=document.createElement("div")
+/*var mainDiv=document.createElement("div")
 mainDiv.setAttribute("class", "main")
 document.getElementsByTagName("body")[0].appendChild(mainDiv)
 	//imgFrame
@@ -99,7 +99,7 @@ document.getElementsByTagName("body")[0].appendChild(mainDiv)
 		buttonNext.innerHTML="Next"
 		document.getElementById("buttonDiv").appendChild(buttonNext)
 		buttonNext.setAttribute("onclick", "next()")
-
+*/
 
 //First Values of img and text
 document.getElementsByTagName("img")[0].src=imgArr[0];
@@ -125,6 +125,8 @@ function prev(){
 	document.getElementsByTagName("p")[0].innerHTML=textArr[k];
 }
 
+var a= document.getElementsByTagName('div')
+console.log(a)
 
 </script>
 </body>

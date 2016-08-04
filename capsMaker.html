@@ -14,11 +14,13 @@
 			position:relative;
 		}
 		img{
-			width:100%;
+			width:894px;
+			border:3px solid transparent;
 		}
 
 		.textFrame{
 			width:100%;
+			height:80px;
 			background-color:red;
 			color:white;
 			position:absolute;
@@ -48,6 +50,11 @@
 			text-align:center;
 			width:80px;
 			margin:5px 0px;
+		}
+		.inputDiv button:last-child{
+			float:left;
+			width:100%;
+			
 		}
 	</style>
 </head>
@@ -119,6 +126,47 @@
 				document.getElementsByClassName("inputDiv")[0].appendChild(buttonText)
 				buttonText.setAttribute("onclick", "addText()")
 
+				//input for border
+				var inputBorder=document.createElement("input")
+				inputBorder.placeholder="Add border color"
+				inputBorder.type="text"
+				document.getElementsByClassName("inputDiv")[0].appendChild(inputBorder)
+
+				//button for border
+				var buttonBorder=document.createElement("button")
+				buttonBorder.innerHTML="Change"
+				document.getElementsByClassName("inputDiv")[0].appendChild(buttonBorder)
+				buttonBorder.setAttribute("onclick", "changeBorder()")
+
+				//input for bg of text
+				var inputTextBg=document.createElement("input")
+				inputTextBg.placeholder="Add background color of text"
+				inputTextBg.type="text"
+				document.getElementsByClassName("inputDiv")[0].appendChild(inputTextBg)
+
+				//button for background color
+				var buttonBgColor=document.createElement("button")
+				buttonBgColor.innerHTML="Change"
+				document.getElementsByClassName("inputDiv")[0].appendChild(buttonBgColor)
+				buttonBgColor.setAttribute("onclick", "changeTextBackground()")
+
+				//input for text color
+				var inputTextColor=document.createElement("input")
+				inputTextColor.placeholder="Add text color"
+				inputTextColor.type="text"
+				document.getElementsByClassName("inputDiv")[0].appendChild(inputTextColor)
+
+				//button for text color
+				var buttonTextColor=document.createElement("button")
+				buttonTextColor.innerHTML="Change"
+				document.getElementsByClassName("inputDiv")[0].appendChild(buttonTextColor)
+				buttonTextColor.setAttribute("onclick", "changeTextColor()")
+
+				//button for text color
+				var buttonPosition=document.createElement("button")
+				buttonPosition.innerHTML="Change Text Position"
+				document.getElementsByClassName("inputDiv")[0].appendChild(buttonPosition)
+				buttonPosition.setAttribute("onclick", "changePosition()")
 
 
 	function addImage(){
@@ -130,6 +178,36 @@
 		var text=document.getElementsByTagName("input")[1].value;
 		document.getElementsByTagName('p')[0].innerHTML=text;
 	}
+
+	function changeBorder(){
+		var text=document.getElementsByTagName("input")[2].value;
+		document.getElementsByTagName('img')[0].style.borderColor=text;
+		
+	}
+
+	function changeTextBackground(){
+		var text=document.getElementsByTagName("input")[3].value;
+		document.getElementsByClassName('textFrame')[0].style.background=text;
+	}
+
+	function changeTextColor(){
+		var text=document.getElementsByTagName("input")[4].value;
+		document.getElementsByTagName('p')[0].style.color=text;
+	}
+
+	var k=true;
+	function changePosition(){
+		if(k){
+			document.getElementsByClassName("textFrame")[0].style.top="0";
+			k=false;
+		}
+		else{
+			document.getElementsByClassName("textFrame")[0].style.top=null;
+			document.getElementsByClassName("textFrame")[0].style.bottom="0";
+			k=true;
+		}
+	}
+
 </script>
 </body>
 </html>
